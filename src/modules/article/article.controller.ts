@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ArticleService } from './article.service';
 
 @Controller('article')
@@ -8,5 +8,9 @@ export class ArticleController {
   @Get()
   findAll() {
     return this.articleService.findAll();
+  }
+  @Post()
+  create(@Body() body) {
+    return this.articleService.create(body);
   }
 }
